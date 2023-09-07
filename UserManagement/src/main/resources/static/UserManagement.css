@@ -1,0 +1,223 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    scroll-behavior: smooth;
+}
+
+#main {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    font-size: 1.5rem;
+    background-image: url("img/clouds.jpg");
+    background-size:cover;
+    background-repeat: no-repeat;
+}
+#firstlink{
+    text-decoration: none;
+    color: black;
+}
+#secondlink{
+    text-decoration: none;
+    color: black;
+}
+#thirdlink{
+    text-decoration: none;
+    color:white; 
+}
+#SideMenu{
+    position: absolute;
+    margin-left: 10%;
+    margin-top: 10%;
+    width: 250px;
+    height: 120px;
+    background: white;
+    border: 2px solid rgba(162,37,41,255);
+}
+#first {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 40px;
+    border-bottom: 2px solid rgba(162, 37, 41, 255);
+    background-color: white;
+    color: black;
+}
+#first:hover{
+    background-color: rgb(196, 196, 196);
+    cursor: pointer;
+}
+#second:hover{
+    background-color: rgb(196, 196, 196);
+    cursor: pointer;
+}
+#third:hover{
+    background-color: rgba(110, 27, 30, 1);
+    cursor: pointer;
+}
+#second{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 40px;
+    background-color: white;
+    color: black;
+    border-bottom: 2px solid rgba(162, 37, 41, 255);
+}
+
+#third{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 40px;
+    background-color: rgba(162, 37, 41, 255);
+    color: white;
+}
+
+#rightdiv{
+    height: 400px;
+    width: 796px;
+    position: absolute;
+    left: 40%;
+    top: 20%;
+    background-color: white;
+    border: solid 2px black;
+    
+}
+form{
+    padding-top: 50px;
+}
+#left{
+    height: 400px;
+    width: 398px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    flex-direction: row;
+}
+#right{
+    height: 400px;
+    width: 398px;
+    position: absolute;
+    left: 400px;
+    top: 0px;
+    flex-direction: row;
+}
+.form__group {
+    position: relative;
+    padding: 15px 0 0;
+    margin-top: 10px;
+    width: 100%; 
+    top: 10%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+}
+
+.form__field {
+    font-family: inherit;
+    width: 50%;
+    border: 0;
+    border-bottom: 2px solid rgba(162,37,41,255);
+    outline: 0;
+    font-size: 1.3rem;
+    color: rgba(162,37,41,255);
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+
+    &::placeholder {
+        color: transparent;
+    }
+
+    &:placeholder-shown ~ .form__label {
+        font-size: 1.3rem;
+        cursor: text;
+        top: 20px;
+    }
+}
+
+.form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: rgba(162,37,41,255);
+}
+
+.form__field:focus {
+    ~ .form__label {
+        position: absolute;
+        top: 0;
+        display: block;
+        transition: 0.2s;
+        font-size: 1rem;
+        color: primary;
+        font-weight: 700;
+    }
+    padding-bottom: 6px;
+    font-weight: 700;
+    border-width: 3px;
+    border-image: linear-gradient(to right, primary, secondary);
+    border-image-slice: 1;
+}
+
+.form__field:required,
+.form__field:invalid {
+    box-shadow: none;
+}
+.button-18 {
+    align-items: center;
+    background-color: rgba(162,37,41,255);
+    border: 0;
+    border-radius: 100px;
+    box-sizing: border-box;
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: -apple-system, system-ui, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell, "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Lucida Grande", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    justify-content: center;
+    line-height: 20px;
+    max-width: 480px;
+    min-height: 40px;
+    min-width: 0px;
+    overflow: hidden;
+    padding: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+    touch-action: manipulation;
+    transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+    user-select: none;
+    -webkit-user-select: none;
+    vertical-align: middle;
+    position: relative;
+    margin-left: 60%;
+    margin-top: 10%;
+  }
+  
+  .button-18:hover,
+  .button-18:focus { 
+    background-color: rgba(110, 27, 30, 1);
+    color: #ffffff;
+    animation: hop 0.5s;
+  }
+  
+  .button-18:active {
+    background: rgba(110, 27, 30, 1);
+    color: rgb(255, 255, 255, .7);
+  }
+  
+  .button-18:disabled { 
+    cursor: not-allowed;
+    background: rgba(0, 0, 0, .08);
+    color: rgba(0, 0, 0, .3);
+  }

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <link rel="stylesheet" href="PnrSearch.css" />
+
+</head>
+<body>
+<div id="main">
+  <div id="SideMenu">
+    <div id="first">
+      <a id="firstlink" th:href="@{/SelectPorts.html}">Reservation</a>
+    </div>
+    <div id="second">
+      <a id="secondlink" th:href="@{/PnrSearch.html}">Pnr Search</a>
+    </div>
+    <div id="third">
+      <a id="thirdlink" th:href="@{/UserManagement.html}">User Management</a>
+    </div>
+    </div>
+  <div id="rightdiv">
+    <label>Search PNR</label>
+    <form th:action="@{/api/v1/pnr/search}" method="post">
+    <input id="search" name="search" type="text">
+
+        <button id="button" class="button-18">Search</button>
+    </form>
+    
+  </div>
+  
+    
+  
+</div>
+
+</body>
+</html>

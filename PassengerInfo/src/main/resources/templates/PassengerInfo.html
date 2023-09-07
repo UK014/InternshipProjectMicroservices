@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <link rel="stylesheet" href="PassengerInfo.css" />
+
+</head>
+<body>
+<div id="main">
+    <div id="SideMenu">
+        <div id="first">
+            <a id="firstlink" th:href="@{/SelectPorts.html}">Reservation</a>
+        </div>
+        <div id="second">
+            <a id="secondlink" th:href="@{/PnrSearch.html}">Pnr Search</a>
+        </div>
+        <div id="third">
+            <a id="thirdlink" th:href="@{/UserManagement.html}">User Management</a>
+        </div>
+  </div><div id="flex">
+    <form th:id="myform" th:action="@{/api/v1/passenger/passengerinfo}" method="post" >
+    <div id="rightdiv" th:each="passenger : ${#numbers.sequence(1, totalPassenger)}">
+        <div id="left">
+        <div class="form__group field">
+            <input type="input" class="form__field" placeholder="Name" name="name" id="name" required />
+            <label for="name" class="form__label">Name</label>
+        </div>
+        <div class="form__group field">
+            <input type="input" class="form__field" placeholder="Surname" name="surname" id="surname" required />
+            <label for="surname" class="form__label">Surname</label>
+        </div>
+        <div class="form__group field">
+            <input type="input" class="form__field" placeholder="Passport No" name="passport" id="passport" required />
+            <label for="passport" class="form__label">Passport No</label>
+        </div><br>
+        <label style="color:rgba(162, 37, 41, 255);position: relative;margin-left:5%;">Birth Date </label>
+        <input  id="birthDate" name="birthDate" type="date" ><br>
+    </div>
+        <div id="right">
+            <div class="form__group field">
+                <input type="input" class="form__field" placeholder="Social Security" name="SSN" id="SSN" required />
+                <label for="SSN" class="form__label">SSN</label>
+            </div>
+            <div class="form__group field">
+                <input type="input" class="form__field" placeholder="Phone" name="phone" id="phone" required />
+                <label for="phone" class="form__label">Phone Number</label>
+            </div>
+            <div class="form__group field">
+                <input type="email" class="form__field" placeholder="email" name="email" id="email" required />
+                <label for="email" class="form__label">E Mail</label>
+            </div><br>
+            <label style="color:rgba(162, 37, 41, 255);position: relative;margin-left:5%;" for="gender">Select Gender </label>
+            <select style="height: 40px;" id="gender" name="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+        </div>
+    </div>
+
+    </form>
+    <button id="button" type="submit" class="button-18" onclick="StartAnimation()" th:form="myform">Continue</button>
+</div>
+  <img id="planeicon" th:src="@{/img/black-plane.png}">
+  
+</div>
+<script src="@{/PassengerInfo.js}"></script>
+</body>
+</html>

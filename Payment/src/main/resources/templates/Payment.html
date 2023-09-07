@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <link rel="stylesheet" href="Payment.css" />
+
+</head>
+<body>
+<div id="main">
+    <div id="SideMenu">
+        <div id="first">
+            <a id="firstlink" th:href="@{/SelectPorts.html}">Reservation</a>
+        </div>
+        <div id="second">
+            <a id="secondlink" th:href="@{/PnrSearch.html}">Pnr Search</a>
+        </div>
+        <div id="third">
+            <a id="thirdlink" th:href="@{/UserManagement.html}">User Management</a>
+        </div>
+        </div>
+    <div id="cost">
+        <p>Total payment:&nbsp;&nbsp;<span th:text="${cost}"></span></p>
+        <div>
+            <label>Cash</label>
+            <input type="radio">
+        </div>
+        <form th:action="@{/api/v1/payment/payment}" method="post">
+            <button id="button" class="button-18" onclick="StartAnimation()">Continue</button>
+        </form>
+    </div>
+    <div id="somediv">
+        <div id="rightdiv">
+            <div id="top"><p>PNR:<span th:text="${pnr}"></span> &nbsp;&nbsp;&nbsp;</p><span> <span th:text="${depdate}"></span></span> <span th:text="${flighttime1}"></span></div>
+            <div id="flightinfo">
+                <span th:text="${dep}"></span>
+                <img id="planeicon" th:src="@{/img/black-plane.png}">
+                <span th:text="${arr}"></span>
+            </div>
+            <div id="divv">
+                <span>Passenger Name</span>
+                <span>Birth Date</span>
+                <span>Gender</span>
+            </div>
+            <div th:each="passenger : ${passengers}" id="passengerinfo">
+                <span th:text="${passenger.name + ' ' + passenger.surname}"></span>
+                <span th:text="${passenger.birthdate}"></span>
+                <span th:text="${passenger.gender}"></span>
+            </div>
+        </div>
+        <div id="rightdiv2">
+            <div id="top2"><span> <span th:text="${arrdate}"></span></span> <span th:text="${flighttime2}"></span></div>
+            <div id="flightinfo2">
+                <span th:text="${arr}"></span>
+                <img id="planeicon2" th:src="@{/img/black-plane.png}">
+                <span th:text="${dep}"></span>
+            </div>
+            <div id="divv2">
+                <span>Passenger Name</span>
+                <span>Birth Date</span>
+                <span>Gender</span>
+            </div>
+            <div th:each="passenger : ${passengers}" id="passengerinfo2">
+                <span th:text="${passenger.name + ' ' + passenger.surname}"></span>
+                <span th:text="${passenger.birthdate}"></span>
+                <span th:text="${passenger.gender}"></span>
+            </div>
+        </div>
+    </div>
+
+      
+  
+  
+  
+</div>
+<script src="Payment.js"></script>
+</body>
+</html>

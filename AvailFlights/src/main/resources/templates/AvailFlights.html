@@ -1,0 +1,61 @@
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <link rel="stylesheet" th:href="@{/AvailFlights.css}" />
+    </head>
+    <body>
+        <div id="main">
+            <div id="SideMenu">
+                <div id="first">
+                <a id="firstlink" th:href="@{/SelectPorts.html}">Reservation</a>
+            </div>
+            <div id="second">
+                <a id="secondlink" th:href="@{/PnrSearch.html}">Pnr Search</a>
+            </div>
+            <div id="third">
+                <a id="thirdlink" th:href="@{/UserManagement.html}">User Management</a>
+            </div>
+            </div>
+            <form th:action="@{/api/v1/availflights/availflights}" method="post">
+            <div id="rightdiv">
+                <div id="top"><span th:text="${flightno1}"><p>&nbsp;&nbsp; &nbsp;&nbsp; </p></span><p>&nbsp; - &nbsp;</p><span th:text="${dep} "></span><p> &nbsp;-&nbsp;</p><span th:text="${arr}"></span><p>&nbsp;-&nbsp;</p><span th:text="${date}"></span><p>&nbsp;&nbsp;- &nbsp;&nbsp; </p><span th:text="${flighttime1}"></span></div>
+                <div id="businessleft">
+                    <input type="radio" id="business" name="business" onclick="isChecked('business')">
+                    <label>Business</label>
+                </div>
+                <div id="businessright">
+                    <p><span th:text="${bcost}"></span> USD</p>
+
+                </div>
+                <div id="economyleft">
+                    <input type="radio" id="economy" name="economy" onclick="isChecked('economy')">
+                    <label>Economy</label>
+                </div>
+                <div id="economyright">
+                    <p> <span th:text = " ${ecost}"></span> USD</p>
+                </div>
+            </div>
+                <div id="rightdiv2">
+                    <div id="top2"><span th:text="${flightno2}">&nbsp;<p>&nbsp;&nbsp;</p></span><p>&nbsp; - &nbsp;</p><span th:text="${arr} "></span><p> &nbsp;-&nbsp;</p><span th:text="${dep}"></span><p>&nbsp;-&nbsp;</p><span th:text="${retdate}"></span><p>&nbsp;&nbsp;- &nbsp;&nbsp; </p><span th:text="${flighttime2}"></span></div>
+                    <div id="businessleft2">
+                        <input type="radio" id="business2" name="business2" onclick="isChecked('business2')">
+                        <label>Business</label>
+                    </div>
+                    <div id="businessright2">
+                        <p><span th:text="${bcost}"></span> USD</p>
+
+                    </div>
+                    <div id="economyleft2">
+                        <input type="radio" id="economy2" name="economy2" onclick="isChecked('economy2')">
+                        <label>Economy</label>
+                    </div>
+                    <div id="economyright2">
+                        <p> <span th:text = " ${ecost}"></span> USD</p>
+                    </div>
+                </div>
+            <button type="submit" class="button-18" onclick="StartAnimation()">Continue</button>
+            </form>
+            <img id="planeicon"  th:src="@{/img/black-plane.png}">
+        </div>
+        <script th:src="@{/AvailFlights.js}"></script>
+    </body>
+</html>

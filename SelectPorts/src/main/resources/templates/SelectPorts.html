@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <link rel="stylesheet" th:href="@{/SelectPorts.css}" />
+
+</head>
+<body>
+<div id="main">
+  <div id="SideMenu">
+    <div id="first">
+      <a id="firstlink" th:href="@{/SelectPorts.html}">Reservation</a>
+    </div>
+    <div id="second">
+      <a id="secondlink" th:href="@{/PnrSearch.html}">Pnr Search</a>
+    </div>
+    <div id="third">
+      <a id="thirdlink" th:href="@{/UserManagement.html}">User Management</a>
+    </div>
+  </div>
+    <form th:action="@{/api/v1/ports/selectPorts}" method="post">
+      <div id="rightdiv">
+    <input type="radio" value="ONE WAY" id="oneway" name="oneway" onclick="isChecked('oneway')">
+    <label>ONE WAY</label>
+    <input type="radio" value="ROUND TRIP" id="roundtrip" name="roundtrip" onclick="isChecked('roundtrip')">
+    <label>ROUND TRIP</label><br><br><br><br>
+    <label>Departure Port</label>
+    <label style="position: relative;margin-left:15%">Arrival Port</label><br><br>
+    <select id="Departure" onchange="isPortSame()" name="Departure">
+      <option value="New York">New York</option>
+      <option value="Los Angeles">Los Angeles</option>
+      <option value="Chicago">Chicago</option>
+      <option value="Miami">Miami</option>
+      <option value="San Francisco">San Francisco</option>
+      <option value="Istanbul" selected>Istanbul</option>
+      <option value="Paris">Paris</option>
+      <option value="London">London</option>
+      <option value="Rome">Rome</option>
+      <option value="Berlin">Berlin</option>
+      <option value="Amsterdam">Amsterdam</option>
+    </select>
+    <select id="Arrival" onchange="isPortSame()" name="Arrival">
+      <option value="New York" selected>New York</option>
+      <option value="Los Angeles">Los Angeles</option>
+      <option value="Chicago">Chicago</option>
+      <option value="Miami">Miami</option>
+      <option value="San Francisco">San Francisco</option>
+      <option value="Istanbul">Istanbul</option>
+      <option value="Paris">Paris</option>
+      <option value="London">London</option>
+      <option value="Rome">Rome</option>
+      <option value="Berlin">Berlin</option>
+      <option value="Amsterdam">Amsterdam</option>
+    </select><br><br>
+    <label>Departure Date</label><label id="returnlabel" style="position: relative;margin-left:15%">Return Date</label><br><br>
+    <input type="date" id="depdate" name="depdate">
+        <input type="date" id="retdate" name="retdate">
+    <br><br><br><br>
+    <label>Adult Count</label>
+    <select id="adultcount" name="adultcount">
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+    </select><br><br>
+    <label>Child Count</label>
+    <select id="childcount" name="childcount">
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+    </select><br><br>
+    <label>Infant Count</label>
+    <select id="infantcount" name="infantcount">
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+    </select><br><br>
+  </div>
+  <button id="button" class="button-18" onclick="StartAnimation()" type="submit">SEARCH</button>
+  </form>
+  <img id="planeicon"  th:src="@{/img/black-plane.png}">
+
+</div>
+<script th:src="@{/SelectPorts.js}"></script>
+</body>
+</html>

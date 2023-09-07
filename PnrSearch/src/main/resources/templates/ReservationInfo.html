@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <link rel="stylesheet" th:href="@{/ReservationInfo.css}" />
+
+</head>
+<body>
+<div id="main">
+    <div id="SideMenu">
+        <div id="first">
+            <a id="firstlink" th:href="@{/SelectPorts.html}">Reservation</a>
+        </div>
+        <div id="second">
+            <a id="secondlink" th:href="@{/PnrSearch.html}">Pnr Search</a>
+        </div>
+        <div id="third">
+            <a id="thirdlink" th:href="@{/UserManagement.html}">User Management</a>
+        </div>
+        </div>
+    <form th:action="@{/api/v1/reservation/info}" method="post">
+        <button id="button" class="button-18" onclick="StartAnimation()">Cancel Reservation</button>
+    </form>
+    <div id="somediv">
+    <div id="flightinfo">
+        <div id="top2"></div>
+        <div id="finfo">
+            <span th:text="${flightno1}"></span>
+            <span th:text="${dep}"></span>
+            <span th:text="${depdate}"></span>
+            <span th:text="${flighttime1}"></span>
+            <span th:text="${arr}"></span>
+        </div>
+    </div>
+        <div id="flightinfo2">
+            <div id="top3"></div>
+            <div id="finfo2">
+                <span th:text="${flightno2}"></span>
+                <span th:text="${arr}"></span>
+                <span th:text="${arrdate}"></span>
+                <span th:text="${flighttime2}"></span>
+                <span th:text="${dep}"></span>
+            </div>
+        </div>
+  <div id="rightdiv">
+    <div id="top"><p>PNR:<span th:text="${pnr}"></span></p></div>
+    <div th:each="passenger : ${passengers}" id="passengerinfo">
+        <span th:text="${passenger.name + ' ' + passenger.surname}"></span>
+        <span th:text="${passenger.birthdate}"></span>
+        <span th:text="${passenger.gender}"></span>
+    </div>
+  </div>
+    </div>
+  
+</div>
+
+</body>
+</html>
